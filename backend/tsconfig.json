@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "baseUrl": "./",
+    "lib": ["es6", "dom"],
+    "allowJs": true,
+    "rootDir": ".",
+    "outDir": "./dist/src",
+    "declarationDir": "./dist/@types",
+    "declaration": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitThis": false,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@/*": ["./src/main/*"]
+    }
+  },
+  "include": ["src/main/**/*", "**/*.test.ts", "src/test"],
+  "typeRoots": ["src/main/application/types/global.d.ts"],
+  "files": ["./src/main/application/types/global.d.ts"]
+}
