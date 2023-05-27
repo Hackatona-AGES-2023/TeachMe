@@ -7,16 +7,16 @@ class Router {
   init(app) {
     const dependencies = DependencyInjector.GetInstance().wireDependencies();
 
-    app.get("v1/trails/:studentId", async (req, res) => {
+    app.get("/v1/trails/:studentId", async (req, res) => {
       await dependencies.httpHandler.getTrails(req, res);
     });
-    app.get("v1/trail/:studentId", async (req, res) => {
+    app.get("/v1/trail/:studentId", async (req, res) => {
       await dependencies.httpHandler.getTrail(req, res);
     });
-    app.post("v1/trail/:studentId", async (req, res) => {
+    app.post("/v1/trail/:studentId", async (req, res) => {
       await dependencies.httpHandler.createTrail(req, res);
     });
-    app.post("v1/trail/progress/:studentId", async (req, res) => {
+    app.post("/v1/trail/progress/:studentId", async (req, res) => {
       await dependencies.httpHandler.setTrailProgress(req, res);
     });
   }

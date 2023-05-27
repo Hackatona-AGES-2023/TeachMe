@@ -3,6 +3,9 @@ import { PDatabase } from "../../port/database-port";
 
 export class ADatabaseMock implements PDatabase {
   private data;
+  constructor() {
+    this.data = {};
+  }
   async getTrails(studentId: string): Promise<ITrail[]> {
     if (this.data[studentId]) {
       return this.data[studentId];
