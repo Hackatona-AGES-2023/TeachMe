@@ -5,3 +5,9 @@ export class TrailNotFoundError extends ErrorType {
     super(message, 404, 1);
   }
 }
+
+export class AIError extends ErrorType {
+  constructor(message: string) {
+    super(message, 500, 2);
+  }
+}

@@ -33,6 +33,7 @@ export class AHttpHandler implements PHttpHandler {
         error: err.message,
         event: "AHttpHandler.setTrailProgress",
       });
+      this._httpErrorHandler.handle(err, res);
     }
   }
   async createTrail(req: any, res: any): Promise<void> {
@@ -52,6 +53,7 @@ export class AHttpHandler implements PHttpHandler {
         error: err.message,
         event: "AHttpHandler.createStudyTrail",
       });
+      this._httpErrorHandler.handle(err, res);
     }
   }
   async getTrail(req: any, res: any): Promise<void> {
@@ -72,6 +74,7 @@ export class AHttpHandler implements PHttpHandler {
         error: err.message,
         event: "AHttpHandler.getStudyTrailProgress",
       });
+      this._httpErrorHandler.handle(err, res);
     }
   }
   async getTrails(req: any, res: any): Promise<void> {
@@ -91,6 +94,8 @@ export class AHttpHandler implements PHttpHandler {
         error: err.message,
         event: "AHttpHandler.getTrails",
       });
+
+      this._httpErrorHandler.handle(err, res);
     }
   }
 }

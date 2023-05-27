@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import { ITrail } from "../../interfaces/trail-interface";
 import { TrailBuilder } from "../builder/trail-builder";
 import { SetTrailProgressRequestDto } from "../dto/set-trail-progress-request-dto";
@@ -7,13 +8,13 @@ import { PAi } from "../port/ai-port";
 import { PDatabase } from "../port/database-port";
 import { PLogger } from "../port/logger-port";
 import { PTeachMeService } from "../port/teach-me-service-port";
+import { PTrailService } from "../port/trail-service-port";
 
 export class TeachMeService implements PTeachMeService {
   constructor(
     private readonly _logger: PLogger,
     private readonly _database: PDatabase,
-    private readonly _ai: PAi,
-    private readonly _trailBuilder: TrailBuilder
+    private readonly _trailService: PTrailService
   ) {}
   async setTrailProgress(
     setTrailProgressRequestDto: SetTrailProgressRequestDto
@@ -25,28 +26,17 @@ export class TeachMeService implements PTeachMeService {
         setTrailProgressRequestDto,
       });
 
-      const trails = await this._database.getTrails(
-        setTrailProgressRequestDto.studentId
+      const trail = await this.getTrail(
+        setTrailProgressRequestDto.studentId,
+        setTrailProgressRequestDto.trailId
       );
 
-      let trail;
+      trail.progress = setTrailProgressRequestDto.progress;
 
-      for (let t of trails) {
-        if (t.id === setTrailProgressRequestDto.trailId) {
-          trail = t;
-          break;
-        }
-      }
-
-      if (!trail) {
-        this._logger.warn({
-          event: "TeachMeService.setTrailProgress",
-          details: "Process warn",
-          warn: "trail not found",
-        });
-
-        throw new TrailNotFoundError("trail not found");
-      }
+      await this._database.putTrail(
+        setTrailProgressRequestDto.studentId,
+        trail
+      );
     } catch (err) {
       this._logger.error({
         event: "TeachMeService.setTrailProgress",
@@ -63,12 +53,14 @@ export class TeachMeService implements PTeachMeService {
         details: "Process started",
         trailRequestDto,
       });
+      const trailId = randomUUID();
 
-      const response = await this._ai.request(trailRequestDto.topic);
+      const trail = await this._trailService.execute(
+        trailRequestDto.topic,
+        trailId
+      );
 
-      const trail = this._trailBuilder.build(response);
-
-      this._database.putTrail(trailRequestDto.studentId, trail);
+      await this._database.putTrail(trailRequestDto.studentId, trail);
 
       return trail;
     } catch (err) {
@@ -91,7 +83,7 @@ export class TeachMeService implements PTeachMeService {
 
       const trails = await this._database.getTrails(studentId);
 
-      let trail;
+      let trail: any;
 
       for (let t of trails) {
         if (t.id === trailId) {
