@@ -996,20 +996,6 @@
       ],
       "async": false
     },
-    "/Users/gabrielguinterherter/Projects/teachMe/TeachMe/frontend/app/globals.css#": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/layout.css"
-      ]
-    },
-    "/Users/gabrielguinterherter/Projects/teachMe/TeachMe/frontend/node_modules/next/font/google/target.css?{\"path\":\"app/layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}#": {
-      "id": "null",
-      "name": "default",
-      "chunks": [
-        "static/css/app/layout.css"
-      ]
-    },
     "/Users/gabrielguinterherter/Projects/teachMe/TeachMe/frontend/app/page.tsx": {
       "id": "(app-client)/./app/page.tsx",
       "name": "*",
@@ -1145,6 +1131,20 @@
         "app/page:static/chunks/app/page.js"
       ],
       "async": false
+    },
+    "/Users/gabrielguinterherter/Projects/teachMe/TeachMe/frontend/app/globals.css#": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/layout.css"
+      ]
+    },
+    "/Users/gabrielguinterherter/Projects/teachMe/TeachMe/frontend/node_modules/next/font/google/target.css?{\"path\":\"app/layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}#": {
+      "id": "null",
+      "name": "default",
+      "chunks": [
+        "static/css/app/layout.css"
+      ]
     }
   }
 }

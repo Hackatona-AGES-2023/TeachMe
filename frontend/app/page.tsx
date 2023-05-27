@@ -16,6 +16,7 @@ export default function Home() {
   const [topics, setTopics] = useState<Array<ITopic>>([]);
   const [step,setStep] = useState(0);
 const [loading,setLoading] = useState(false);
+
   const onSubmit = async () => {
     //todo:call backend
     const trail_ :ITrail = {id:"",title:"sdfsdfsdfsdfsdf",progress:{done:0,total:10,pending:10},steps:[{title:"sdfsdfsdfsd ",topics:[{content:"sdfsdfsdfsdfs",title:'sdfsdfsdfdsfs'}]}]}
