@@ -47,6 +47,5 @@ export class AAi implements PAi {
       });
       throw err;
     }
-    return "teu rabo";
   }
 }
