@@ -14,9 +14,9 @@ Integrantes:
 - Matheus Susin Timmers;
 
 
-```
+
 Este projeto tem com ideia a criação de uma página web a qual utiliza uma AI para criar uma trilha de ensino para determinado assunto que o usuário escolhe. Ainda, é informado métodos de como estudar.
-```
+
 Tecnologias utilizadas:
 
 - React;
