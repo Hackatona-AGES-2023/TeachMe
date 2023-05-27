@@ -10,7 +10,6 @@ class Router {
     app.get("v1/trails/:studentId", async (req, res) => {
       await dependencies.httpHandler.getTrails(req, res);
     });
-
     app.get("v1/trail/:studentId", async (req, res) => {
       await dependencies.httpHandler.getTrail(req, res);
     });
@@ -18,7 +17,7 @@ class Router {
       await dependencies.httpHandler.createTrail(req, res);
     });
     app.post("v1/trail/progress/:studentId", async (req, res) => {
-      await dependencies.httpHandler.getTrailProgress(req, res);
+      await dependencies.httpHandler.setTrailProgress(req, res);
     });
   }
 }

@@ -4,7 +4,7 @@ import { TrailRequestDto } from "../dto/trail-request-dto";
 
 export interface PTeachMeService {
   createTrail(trailRequestDto: TrailRequestDto): Promise<ITrail>;
-  getTrail(trailId: string): Promise<ITrail>;
+  getTrail(studentId: string, trailId: string): Promise<ITrail>;
   getTrails(studentId: string): Promise<Array<ITrail>>;
   setTrailProgress(
     SetTrailProgressRequestDto: SetTrailProgressRequestDto

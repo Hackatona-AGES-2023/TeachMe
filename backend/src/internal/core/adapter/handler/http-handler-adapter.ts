@@ -62,8 +62,9 @@ export class AHttpHandler implements PHttpHandler {
       });
 
       const studentId = req.params?.studentId;
+      const trailId = req.query?.trailId;
 
-      const trail = await this._teachMeService.getTrail(studentId);
+      const trail = await this._teachMeService.getTrail(studentId, trailId);
 
       res.json(trail);
     } catch (err) {

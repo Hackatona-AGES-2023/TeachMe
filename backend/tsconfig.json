@@ -16,6 +16,7 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitThis": false,
     "allowSyntheticDefaultImports": true,
+    "strict": false,
     "paths": {
       "@/*": ["./src/main/*"]
     }
