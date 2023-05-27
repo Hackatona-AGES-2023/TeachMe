@@ -1,4 +1,3 @@
-import { match } from "assert";
 import { ITopic } from "../../interfaces/topic-interface";
 import { ITrail } from "../../interfaces/trail-interface";
 import { ALogger } from "../adapter/logger/logger-adapter";
@@ -45,14 +44,12 @@ export class TrailService implements PTrailService {
       }
 
       msg = "";
+      msg +="poderia me enviar um paragrafos, separados por aspas com os assuntos de ";
       stepTitles?.forEach((stepTitle) => {
-        msg +=
-          "me de a explicação de " +
-          stepTitle +
-          " conforme o seguinte exemplo: \n\n  " +
-          stepTitle +
-          ': "explicação...." ';
+        msg += ', ' + stepTitle;    
       });
+
+      msg += ", respectivamente?";
 
       const contentsResponse = await this._ai.request(msg);
 
