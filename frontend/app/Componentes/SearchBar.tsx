@@ -1,9 +1,10 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
+import { useState } from "react";
 
-export default function SearchBar(props: { onSubmit: () => Promise<void> }) {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    props.onSubmit();
+export default function SearchBar(props: { onSubmit: (value:string) => Promise<void> }) {
+  const [text,setText] = useState<string>("")
+  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
+    await props.onSubmit(text);
   };
 
   return (
@@ -14,6 +15,9 @@ export default function SearchBar(props: { onSubmit: () => Promise<void> }) {
           type="text"
           placeholder="O que você deseja estudar hoje?"
           className="w-full py-3 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white"
+          onChange={(e)=>{
+            setText(e.target.value)
+          }}
         />
       </div>
     </form>

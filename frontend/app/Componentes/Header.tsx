@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Header = () => {
   return (
-    <div className="bg-bgreen-1 text-black h-24 flex items-center rounded-lg">
+    <div className="bg-bgreen-1 text-black h-24 flex items-center rounded-lg fixed right-0 w-full ">
       {/* <div className="ml-20 text-3xl">TEACH.ME</div> */}
       <div className="ml-2">
         <Image src="/Logo_sem_fundo.svg" alt="logo" width={250} height={250} />

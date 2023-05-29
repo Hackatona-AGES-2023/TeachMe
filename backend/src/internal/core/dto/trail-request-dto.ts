@@ -4,6 +4,6 @@ export class TrailRequestDto {
 
   constructor(body: any, params: any) {
     if (body.topic) this.topic = body.topic;
-    if (params.studentId) this.studentId = body.studentId;
+    if (params.studentId) this.studentId = params.studentId;
   }
 }

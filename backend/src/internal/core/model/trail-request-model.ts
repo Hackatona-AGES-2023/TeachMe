@@ -1,4 +1,5 @@
 import { TrailRequestDto } from "../dto/trail-request-dto";
+import { ValidationError } from "../errors/errors";
 
 export class TrailRequestModel {
   readonly topic: string;
@@ -12,6 +13,7 @@ export class TrailRequestModel {
   }
 
   validate() {
-    //todo: implement validation
+    if (!this.topic) throw new ValidationError("topic is required");
+    if (!this.studentId) throw new ValidationError("studentId is required");
   }
 }

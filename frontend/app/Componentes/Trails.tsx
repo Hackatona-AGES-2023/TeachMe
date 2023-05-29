@@ -35,8 +35,8 @@ const Trails = (props:{trails:Array<{open:boolean,id:string,topic:string,progres
 
   return (
     
-    <div className="grid pl-2 grid-flow-row gap-4 h-full bg-white ">
-    <div/>
+    <div className="grid pl-2 grid-flow-row gap-4 h-20  bg-white ">
+    <div />
     {trails.map((trail)=>{
       return(
         <Trail onPress={onPress} isTrailOpen={trail.open} trailId={trail.id} topic={trail.topic}  progress={trail.progress}/>

@@ -11,3 +11,9 @@ export class AIError extends ErrorType {
     super(message, 500, 2);
   }
 }
+
+export class ValidationError extends ErrorType {
+  constructor(message: string) {
+    super(message, 400, 3);
+  }
+}

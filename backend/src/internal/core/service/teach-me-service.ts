@@ -4,6 +4,7 @@ import { TrailBuilder } from "../builder/trail-builder";
 import { SetTrailProgressRequestDto } from "../dto/set-trail-progress-request-dto";
 import { TrailRequestDto } from "../dto/trail-request-dto";
 import { TrailNotFoundError } from "../errors/errors";
+import { TrailRequestModel } from "../model/trail-request-model";
 import { PAi } from "../port/ai-port";
 import { PDatabase } from "../port/database-port";
 import { PLogger } from "../port/logger-port";
@@ -53,14 +54,16 @@ export class TeachMeService implements PTeachMeService {
         details: "Process started",
         trailRequestDto,
       });
+
+      const trailRequestModel = new TrailRequestModel(trailRequestDto);
       const trailId = randomUUID();
 
       const trail = await this._trailService.execute(
-        trailRequestDto.topic,
+        trailRequestModel.topic,
         trailId
       );
 
-      await this._database.putTrail(trailRequestDto.studentId, trail);
+      await this._database.putTrail(trailRequestModel.studentId, trail);
 
       return trail;
     } catch (err) {

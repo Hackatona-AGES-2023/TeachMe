@@ -4,6 +4,8 @@ import { CaretRight } from '@phosphor-icons/react';
 
 
 function Card(props:{text:string}){
+  console.log(props.text)
+
   return (  <div className="max-w-sm rounded overflow-hidden shadow-lg">
   <div className="px-6 py-4">
     <p className="text-gray-700 text-base">
@@ -23,7 +25,8 @@ const TrailPage = (props: { handleClick: () => Promise<void>,topics:Array<{title
     <div className="flex flex-1 mt-10 items-center flex-col">
       <Image src="/Frame1.svg" alt="Fluxo" width={500} height={500} />
       
-      {props.topics.map(topic=>{
+      {props.topics.filter(topic=>{return topic.content&&topic.content.length>0}).map(topic=>{
+        console.log(topic)
         return(<Card text={topic.content}/>)
       })}
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import SearchBar from '../Componentes/SearchBar';
 
-const LandingPage = (props: { onSubmit: () => Promise<void> }) => {
+const LandingPage = (props: { onSubmit: (value:string) => Promise<void> }) => {
   return (
     <div className="flex flex-1 mt-20 items-center flex-col">
       <div className="text-center text-5xl font-bold mb-20">

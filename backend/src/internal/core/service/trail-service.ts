@@ -44,9 +44,12 @@ export class TrailService implements PTrailService {
       }
 
       msg = "";
-      msg +="poderia me enviar um paragrafos, separados por aspas com os assuntos de ";
+      msg +=
+        "poderia me enviar " +
+        stepTitles?.length +
+        " paragrafos, separados por aspas, explicando os assuntos de ";
       stepTitles?.forEach((stepTitle) => {
-        msg += ', ' + stepTitle;    
+        msg += ", " + stepTitle;
       });
 
       msg += ", respectivamente?";

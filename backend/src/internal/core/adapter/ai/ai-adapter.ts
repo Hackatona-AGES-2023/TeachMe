@@ -40,6 +40,8 @@ export class AAi implements PAi {
 
       return responseStr;
     } catch (err) {
+      console.log(JSON.stringify(err, null, 4));
+
       this._logger.error({
         event: "AAi.request",
         details: "Process error",
